@@ -10,7 +10,8 @@ import java.io.PrintWriter;
  * Created by user on 26.03.2017.
  */
 @WebServlet("/")
-public class MainServlet extends HttpServlet {
+public class MainServletIndex extends HttpServlet
+{
     /*@Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -27,13 +28,11 @@ public class MainServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-
-        /*PrintWriter out = resp.getWriter();
-        out.print("<h1>Hello Servlet</h1>");*/
+        throws ServletException, IOException
+    {
         req.setAttribute("name", "Devcolibri");
 
-        req.getRequestDispatcher("mypage.jsp").forward(req, resp);
+        req.getRequestDispatcher("index.jsp").forward(req, resp);
 
     }
 }
