@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Bardzimashvili.sv
-  Date: 27.03.2017
-  Time: 11:26
+  Date: 11.04.2017
+  Time: 13:23
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -15,17 +15,16 @@
     <tr>
         <td width="20%" align="center">
             Menu
-            <hr>
-            <a href="formInput.jsp">input</a>
-
 
         </td>
 
         <td>
-         Center 123
+            <form action='inputPost.jsp'>
+                <input type='text' size='40'>
+                <input type='submit'>
+            </form>
         </td>
     </tr>
 </table>
-<!-- <h1>Hello Servlet jsp ${name} jsp</h1> -->
 </body>
 </html>
