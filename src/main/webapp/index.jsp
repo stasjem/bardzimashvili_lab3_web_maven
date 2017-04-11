@@ -17,6 +17,7 @@
             Menu
             <hr>
             <a href="formInput.jsp">input</a>
+            <a href="aboutAs.jsp">about as</a>
 
 
         </td>
