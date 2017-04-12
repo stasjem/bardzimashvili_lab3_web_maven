@@ -1,10 +1,5 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Bardzimashvili.sv
-  Date: 27.03.2017
-  Time: 11:26
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -13,20 +8,17 @@
 <body>
 <table border="1" width="80%" align="center">
     <tr>
-        <td width="20%" align="center">
-            Menu
-            <hr>
-            <a href="formInput.jsp">input</a>
-            <a href="aboutAs.jsp">about as</a>
+        <jsp:include page="menu.jsp"/>
 
-
-        </td>
-
-        <td>
-         Center 123
-        </td>
+    <td>
+        Current time
+        <br>
+        <% response.setIntHeader("Refresh", 1); %>
+        <%= new SimpleDateFormat("dd.MM.yyyy HH.mm.ss").format(new Date()) %>
+    </td>
     </tr>
 </table>
-<!-- <h1>Hello Servlet jsp ${name} jsp</h1> -->
 </body>
 </html>
+
+

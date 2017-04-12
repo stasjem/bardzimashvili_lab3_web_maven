@@ -15,5 +15,6 @@ public class SerletMenu extends HttpServlet
         req.setAttribute("name", "Devcolibri");
 
         req.getRequestDispatcher("index.jsp").forward(req, resp);
+
     }
 }

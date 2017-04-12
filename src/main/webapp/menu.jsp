@@ -1,16 +1,15 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Bardzimashvili.sv
-  Date: 11.04.2017
-  Time: 13:42
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<td width="20%" align="center">
+    Menu
+    <hr>
+    <table border="1" align="left">
+        <tr>
+            <td><a href="index.jsp">Main</a></td>
+        </tr>
+        <tr>
+            <td><a href="formInput.jsp">Add a new record</a></td>
+        </tr>
+        <tr>
+            <td><a href="aboutAs.jsp">About as</a></td>
+        </tr>
+    </table>
+</td>
