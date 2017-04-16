@@ -1,4 +1,4 @@
-package bardzimashvili;
+package bardzimashvili.db;
 
 import java.sql.SQLException;
 
