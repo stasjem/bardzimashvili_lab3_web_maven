@@ -9,13 +9,15 @@
         <jsp:include page="menu.jsp"/>
 
         <td>
-            <form action='InputServlet' method="post">
-                Name app<br>
-                <input type='text' size='40'><br>
-                <input type='submit' value="Clic">
-            </form>
+            Current time
+            <br>
+            <%= request.getAttribute("title") %>
+            <br>
+            <%= request.getAttribute("name") %>>
         </td>
     </tr>
 </table>
 </body>
 </html>
+
+

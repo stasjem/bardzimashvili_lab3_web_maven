@@ -12,6 +12,9 @@
             <td><a href="aboutAs.jsp">About as</a></td>
         </tr>
         <tr>
+            <td><a href="allList.jsp">allList</a></td>
+        </tr>
+        <tr>
             <td><a href="testHtml.jsp">testHtml</a></td>
         </tr>
     </table>

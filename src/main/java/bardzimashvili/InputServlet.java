@@ -10,19 +10,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
-
-//@WebServlet("/")
-public class MainServletIndex extends HttpServlet
+public class InputServlet extends HttpServlet
 {
-    /*@Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-
-        super.doGet(req, resp);
-    }
-    */
-
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
         throws ServletException, IOException
@@ -42,18 +31,12 @@ public class MainServletIndex extends HttpServlet
         }
 
 
-       /* PrintWriter printWriter = resp.getWriter();
-        printWriter.println("hello");
-        printWriter.close();*/
+        String title = "title";
+        String name = "nameapp";
+        String value = "app";
+        req.setAttribute("name", value);
+        req.setAttribute("title", title);
+        req.setAttribute("title", name);
+        req.getRequestDispatcher("allList.jsp").forward(req, resp);
     }
-
-    /*@Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-        throws ServletException, IOException
-    {
-        req.setAttribute("name", "hello");
-
-        req.getRequestDispatcher("index.jsp").forward(req, resp);
-
-    }*/
 }
