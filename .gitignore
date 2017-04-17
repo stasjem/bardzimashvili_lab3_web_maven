@@ -1,4 +1,5 @@
 .idea/
+*.iml
 target/
 lib/
 src/main/resources/
