@@ -33,10 +33,11 @@ public class InputServlet extends HttpServlet
 
         String title = "title";
         String name = "nameapp";
-        String value = "app";
-        req.setAttribute("name", value);
+        String nameApp = req.getParameter("nameApp");
+        //req.setAttribute("name", value);
         req.setAttribute("title", title);
         req.setAttribute("title", name);
+        req.setAttribute("nameApp", nameApp);
         req.getRequestDispatcher("allList.jsp").forward(req, resp);
     }
 }

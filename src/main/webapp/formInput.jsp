@@ -11,8 +11,8 @@
         <td>
             <form action='InputServlet' method="post">
                 Name app<br>
-                <input type='text' size='40'><br>
-                <input type='submit' value="Clic">
+                <input type='text' size='40' name="nameApp"><br>
+                <input type='submit' value="Output data">
             </form>
         </td>
     </tr>

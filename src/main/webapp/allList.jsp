@@ -13,7 +13,9 @@
             <br>
             <%= request.getAttribute("title") %>
             <br>
-            <%= request.getAttribute("name") %>>
+            <%= request.getAttribute("name") %>
+            <br>
+            <%= request.getAttribute("nameApp") %>
         </td>
     </tr>
 </table>
