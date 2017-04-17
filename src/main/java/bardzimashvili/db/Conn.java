@@ -2,17 +2,31 @@ package bardzimashvili.db;
 
 import java.sql.*;
 
-public class Conn {
+public class Conn
+{
     public static Connection conn;
     public static Statement statmt;
     public static ResultSet resSet;
 
-    // --------ПОДКЛЮЧЕНИЕ К БАЗЕ ДАННЫХ--------
+    /**
+     * Connect to DB
+     *
+     * @throws ClassNotFoundException
+     * @throws SQLException
+     */
     public static void Conn() throws ClassNotFoundException, SQLException
     {
         conn = null;
         Class.forName("org.sqlite.JDBC");
-        conn = DriverManager.getConnection("jdbc:sqlite:./lib/TEST1.s3db");
+        try
+        {
+            new DirAndFiles();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        conn = DriverManager.getConnection("jdbc:sqlite:./resources/TEST1.s3db");
 
         System.out.println("База Подключена!");
     }
@@ -41,21 +55,26 @@ public class Conn {
     {
         resSet = statmt.executeQuery("SELECT * FROM users");
 
-        while(resSet.next())
+        while (resSet.next())
         {
             int id = resSet.getInt("id");
-            String  name = resSet.getString("name");
-            String  phone = resSet.getString("phone");
-            System.out.println( "ID = " + id );
-            System.out.println( "name = " + name );
-            System.out.println( "phone = " + phone );
+            String name = resSet.getString("name");
+            String phone = resSet.getString("phone");
+            System.out.println("ID = " + id);
+            System.out.println("name = " + name);
+            System.out.println("phone = " + phone);
             System.out.println();
         }
 
         System.out.println("Таблица выведена");
     }
 
-    // --------Закрытие--------
+    /**
+     * Close connect
+     *
+     * @throws ClassNotFoundException
+     * @throws SQLException
+     */
     public static void CloseDB() throws ClassNotFoundException, SQLException
     {
         conn.close();
