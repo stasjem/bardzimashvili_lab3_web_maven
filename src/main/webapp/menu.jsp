@@ -14,8 +14,8 @@
         <tr>
             <td><a href="allList.jsp">allList</a></td>
         </tr>
-        <tr>
+       <%-- <tr>
             <td><a href="testHtml.jsp">testHtml</a></td>
-        </tr>
+        </tr>--%>
     </table>
 </td>
