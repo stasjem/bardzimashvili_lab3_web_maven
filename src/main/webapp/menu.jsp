@@ -1,4 +1,4 @@
-<td width="20%" align="center">
+<td width="20%" align="center" valign="top">
     Menu
     <hr>
     <table border="1" align="left">

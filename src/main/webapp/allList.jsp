@@ -11,14 +11,22 @@
 
         <td>
             Current time
-            <br>
+           <%-- <br>
             <%= request.getAttribute("id") %>
             <br>
             <%= request.getAttribute("name") %>
             <br>
-            <%= request.getAttribute("phone") %>
+            <%= request.getAttribute("phone") %>--%>
             <br>
             <%= request.getAttribute("nameApp") %>
+            <br>
+            <%= request.getAttribute("category") %>
+            <br>
+            <%= request.getAttribute("size") %>
+            <br>
+            <%= request.getAttribute("market") %>
+            <br>
+            <%= request.getAttribute("descriptions") %>
         </td>
     </tr>
 </table>

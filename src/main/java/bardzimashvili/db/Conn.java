@@ -42,7 +42,7 @@ public class Conn
         statmt.execute("CREATE TABLE if not exists 'users' " +
                             "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text, 'phone' INT);");
         statmt.execute("CREATE TABLE if not exists 'app' " +
-                            "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text, 'market' text);");
+                            "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text, 'market' text, 'descriptions' text);");
         statmt.execute("CREATE TABLE if not exists 'market' " +
                             "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text, 'category' text);");
         statmt.execute("CREATE TABLE if not exists 'category' " +
@@ -63,16 +63,16 @@ public class Conn
         statmt.execute("INSERT INTO 'users' ('name', 'phone') VALUES ('Vasya', 321789); ");
         statmt.execute("INSERT INTO 'users' ('name', 'phone') VALUES ('Masha', 456123); ");*/
 
-        statmt.execute("INSERT INTO 'app' ('name', 'market') VALUES ('Crash Arena', 'Google Play'); ");
-        statmt.execute("INSERT INTO 'app' ('name', 'market') VALUES ('Fly Catbug Fly!', 'Google Play'); ");
-        statmt.execute("INSERT INTO 'app' ('name', 'market') VALUES ('Sumotori Dreams', 'Google Play'); ");
-        statmt.execute("INSERT INTO 'app' ('name', 'market') VALUES ('Facets', 'Google Play'); ");
-        statmt.execute("INSERT INTO 'app' ('name', 'market') VALUES ('NBA 2K14', 'Google Play'); ");
-        statmt.execute("INSERT INTO 'app' ('name', 'market') VALUES ('Polar Bowler', 'Google Play'); ");
-        statmt.execute("INSERT INTO 'app' ('name', 'market') VALUES ('Domo - Icon Pack', 'Google Play'); ");
-        statmt.execute("INSERT INTO 'app' ('name', 'market') VALUES ('Fix My Car: Custom Mods', 'Google Play'); ");
-        statmt.execute("INSERT INTO 'app' ('name', 'market') VALUES ('IMPOSSIBLE ROAD', 'Google Play'); ");
-        statmt.execute("INSERT INTO 'app' ('name', 'market') VALUES ('Goat Rampage', 'Google Play'); ");
+        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size') VALUES ('Crash Arena', 'Google Play', 'descriptions', 'size'); ");
+        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size') VALUES ('Fly Catbug Fly!', 'Google Play', 'descriptions', 'size'); ");
+        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size') VALUES ('Sumotori Dreams', 'Google Play', 'descriptions', 'size'); ");
+        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size') VALUES ('Facets', 'Google Play', 'descriptions', 'size'); ");
+        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size') VALUES ('NBA 2K14', 'Google Play', 'descriptions', 'size'); ");
+        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size') VALUES ('Polar Bowler', 'Google Play', 'descriptions', 'size'); ");
+        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size') VALUES ('Domo - Icon Pack', 'Google Play', 'descriptions', 'size'); ");
+        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size') VALUES ('Fix My Car: Custom Mods', 'Google Play', 'descriptions', 'size'); ");
+        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size') VALUES ('IMPOSSIBLE ROAD', 'Google Play', 'descriptions', 'size'); ");
+        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size') VALUES ('Goat Rampage', 'Google Play', 'descriptions', 'size'); ");
 
         /*statmt.execute("INSERT INTO 'market' ('name', 'category') VALUES ('Google Play', '1'); ");
         statmt.execute("INSERT INTO 'market' ('name', 'category') VALUES ('Amazon Appstore', '1'); ");
@@ -101,7 +101,7 @@ public class Conn
         statmt.execute("INSERT INTO 'subcategory' ('name') VALUES ('Engineering'); ");*/
 
 
-        System.out.println("Таблица заполнена");
+        //System.out.println("Таблица заполнена");
     }
 
     // -------- Вывод таблицы--------
@@ -114,13 +114,13 @@ public class Conn
             int id = resSet.getInt("id");
             String name = resSet.getString("name");
             String phone = resSet.getString("phone");
-            System.out.println("ID = " + id);
+            /*System.out.println("ID = " + id);
             System.out.println("name = " + name);
             System.out.println("phone = " + phone);
-            System.out.println();
+            System.out.println();*/
         }
 
-        System.out.println("Таблица выведена");
+        //System.out.println("Таблица выведена");
     }
 
     // -------- Вывод таблицы--------
