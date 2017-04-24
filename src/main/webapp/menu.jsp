@@ -12,6 +12,7 @@
             <td><a href="aboutAs.jsp">About as</a></td>
         </tr>
         <tr>
+            <%--<td><a href="AllListServlet">allList</a></td>--%>
             <td><a href="allList.jsp">allList</a></td>
         </tr>
        <%-- <tr>

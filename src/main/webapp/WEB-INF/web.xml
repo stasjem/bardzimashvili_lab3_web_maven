@@ -30,5 +30,14 @@
         <url-pattern>/InputServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AllListServlet</servlet-name>
+        <servlet-class>bardzimashvili.AllListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AllListServlet</servlet-name>
+        <url-pattern>/AllListServlet</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>

@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%--<%= request.setAttribute() %>--%>
 <html>
 <head>
     <title>Title</title>
@@ -11,9 +12,11 @@
         <td>
             Current time
             <br>
-            <%= request.getAttribute("title") %>
+            <%= request.getAttribute("id") %>
             <br>
             <%= request.getAttribute("name") %>
+            <br>
+            <%= request.getAttribute("phone") %>
             <br>
             <%= request.getAttribute("nameApp") %>
         </td>

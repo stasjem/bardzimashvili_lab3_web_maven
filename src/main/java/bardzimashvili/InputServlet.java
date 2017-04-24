@@ -15,9 +15,10 @@ public class InputServlet extends HttpServlet
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
         throws ServletException, IOException
     {
-        Db db = new Db();
+
         try
         {
+            Db db = new Db();
             db.db();
         }
         catch (ClassNotFoundException e)
