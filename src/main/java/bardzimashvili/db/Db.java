@@ -11,7 +11,7 @@ public class Db {
         conn.createDB();
         conn.writeDB();
         conn.readDB();
-        conn.closeDB();
+        //conn.closeDB();
     }
 }
 

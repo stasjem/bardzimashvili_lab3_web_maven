@@ -49,7 +49,7 @@ public class InputServlet extends HttpServlet implements Properties
         Conn conn = new Conn();
         try
         {
-            conn.writeTableApp(nameApp, market, descriptions, size);
+            conn.writeTableApp(nameApp, market, descriptions, size, category);
         }
         catch (SQLException e)
         {
@@ -73,7 +73,7 @@ public class InputServlet extends HttpServlet implements Properties
 
             while (resSet.next())
             {
-                String nameAppDb = resSet.getString("nameApp");
+                String nameAppDb = resSet.getString("name");
                 String categoryDb = resSet.getString("category");
                 String sizeDb = resSet.getString("size");
                 String marketDb = resSet.getString("market");

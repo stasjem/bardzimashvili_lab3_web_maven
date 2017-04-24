@@ -18,14 +18,14 @@ public class Conn
     {
         conn = null;
         Class.forName("org.sqlite.JDBC");
-        try
+       /* try
         {
             new DirAndFiles();
         }
         catch (Exception e)
         {
             e.printStackTrace();
-        }
+        }*/
         conn = DriverManager.getConnection("jdbc:sqlite:TEST1.s3db");
 
         //System.out.println("База Подключена!");
@@ -43,7 +43,7 @@ public class Conn
         statmt.execute("CREATE TABLE if not exists 'users' " +
                            "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text, 'phone' INT);");
         statmt.execute("CREATE TABLE if not exists 'app' " +
-                           "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text, 'market' text, 'descriptions' text, 'size' text);");
+                           "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text, 'market' text, 'descriptions' text, 'size' text, 'category' text);");
         statmt.execute("CREATE TABLE if not exists 'market' " +
                            "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text, 'category' text);");
         statmt.execute("CREATE TABLE if not exists 'category' " +
@@ -65,16 +65,16 @@ public class Conn
         statmt.execute("INSERT INTO 'users' ('name', 'phone') VALUES ('Vasya', 321789); ");
         statmt.execute("INSERT INTO 'users' ('name', 'phone') VALUES ('Masha', 456123); ");*/
 
-        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size') VALUES ('Crash Arena', 'Google Play', 'descriptions', 'size'); ");
-        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size') VALUES ('Fly Catbug Fly!', 'Google Play', 'descriptions', 'size'); ");
-        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size') VALUES ('Sumotori Dreams', 'Google Play', 'descriptions', 'size'); ");
-        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size') VALUES ('Facets', 'Google Play', 'descriptions', 'size'); ");
-        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size') VALUES ('NBA 2K14', 'Google Play', 'descriptions', 'size'); ");
-        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size') VALUES ('Polar Bowler', 'Google Play', 'descriptions', 'size'); ");
-        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size') VALUES ('Domo - Icon Pack', 'Google Play', 'descriptions', 'size'); ");
-        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size') VALUES ('Fix My Car: Custom Mods', 'Google Play', 'descriptions', 'size'); ");
-        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size') VALUES ('IMPOSSIBLE ROAD', 'Google Play', 'descriptions', 'size'); ");
-        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size') VALUES ('Goat Rampage', 'Google Play', 'descriptions', 'size'); ");
+        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size', 'category') VALUES ('Crash Arena', 'Google Play', 'descriptions', 'size', 'category'); ");
+        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size', 'category') VALUES ('Fly Catbug Fly!', 'Google Play', 'descriptions', 'size', 'category'); ");
+        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size', 'category') VALUES ('Sumotori Dreams', 'Google Play', 'descriptions', 'size', 'category'); ");
+        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size', 'category') VALUES ('Facets', 'Google Play', 'descriptions', 'size', 'category'); ");
+        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size', 'category') VALUES ('NBA 2K14', 'Google Play', 'descriptions', 'size', 'category'); ");
+        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size', 'category') VALUES ('Polar Bowler', 'Google Play', 'descriptions', 'size', 'category'); ");
+        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size', 'category') VALUES ('Domo - Icon Pack', 'Google Play', 'descriptions', 'size', 'category'); ");
+        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size', 'category') VALUES ('Fix My Car: Custom Mods', 'Google Play', 'descriptions', 'size', 'category'); ");
+        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size', 'category') VALUES ('IMPOSSIBLE ROAD', 'Google Play', 'descriptions', 'size', 'category'); ");
+        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size', 'category') VALUES ('Goat Rampage', 'Google Play', 'descriptions', 'size', 'category'); ");
 
         /*statmt.execute("INSERT INTO 'market' ('name', 'category') VALUES ('Google Play', '1'); ");
         statmt.execute("INSERT INTO 'market' ('name', 'category') VALUES ('Amazon Appstore', '1'); ");
@@ -106,17 +106,17 @@ public class Conn
         //System.out.println("Таблица заполнена");
     }
 
-    public void writeTableApp(String name, String market, String descriptions, String size) throws SQLException
+    public void writeTableApp(String name, String market, String descriptions, String size, String category) throws SQLException
     {
-        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size') VALUES " +
-                           "('" + name + "','" + market + "','" + descriptions + "','" + size +"'); ");
+        statmt = conn.createStatement();
+        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size', 'category') VALUES " +
+                           "('" + name + "','" + market + "','" + descriptions + "','" + size +"','" + category + "'); ");
     }
 
     // -------- Вывод таблицы--------
     public void readDB() throws ClassNotFoundException, SQLException
     {
         resSet = statmt.executeQuery("SELECT * FROM users");
-
         while (resSet.next())
         {
             int id = resSet.getInt("id");
@@ -134,6 +134,7 @@ public class Conn
     // -------- Вывод таблицы--------
     public ResultSet readTable(String table) throws Exception
     {
+        statmt = conn.createStatement();
         resSet = statmt.executeQuery("SELECT * FROM " + table + "; ");
 
         /*while (resSet.next())
