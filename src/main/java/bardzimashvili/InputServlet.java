@@ -73,17 +73,21 @@ public class InputServlet extends HttpServlet implements Properties
 
             while (resSet.next())
             {
+                String idDb = resSet.getString("id");
                 String nameAppDb = resSet.getString("name");
                 String categoryDb = resSet.getString("category");
                 String sizeDb = resSet.getString("size");
                 String marketDb = resSet.getString("market");
                 String descriptionsDb = resSet.getString("descriptions");
 
+                req.setAttribute("idDb", idDb);
                 req.setAttribute("nameAppDb", nameAppDb);
                 req.setAttribute("categoryDb", categoryDb);
                 req.setAttribute("sizeDb", sizeDb);
                 req.setAttribute("marketDb", marketDb);
                 req.setAttribute("descriptionsDb", descriptionsDb);
+
+                req.getRequestDispatcher("allList.jsp").forward(req, resp);
 
             }
         }
@@ -92,7 +96,7 @@ public class InputServlet extends HttpServlet implements Properties
             e.printStackTrace();
         }
 
-        req.getRequestDispatcher("allList.jsp").forward(req, resp);
+
 
 
         //req.getRequestDispatcher("allList.jsp").forward(req, resp);

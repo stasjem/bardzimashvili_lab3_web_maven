@@ -17,8 +17,8 @@
              <%= request.getAttribute("name") %>
              <br>
              <%= request.getAttribute("phone") %>--%>
-            <br>
-            <a href="edutApp.jsp?id=<%= request.getAttribute("idDb") %>"><%= request.getAttribute("nameAppDb") %></a>
+            <br><%--<a href=""--%>
+            <%= request.getAttribute("nameAppDb") %>
             <br>
             <%= request.getAttribute("categoryDb") %>
             <br>

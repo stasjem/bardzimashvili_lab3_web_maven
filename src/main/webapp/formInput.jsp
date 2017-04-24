@@ -14,11 +14,11 @@
                 <input type='text' size='40' name="nameApp" value="Name app"><br>
                 Category<br>
                 <input type='text' size='40' name="category" value="category"><br>
-                Size<br>
+                40<br>
                 <input type='text' size='40' name="size" value="size"><br>
-                Market<br>
+                Google Play<br>
                 <input type='text' size='40' name="market" value="market"><br>
-                Descriptions<br>
+                Descriptions new app<br>
                 <input type='text' size='40' name="descriptions" value="descriptions"><br>
                 <input type='submit' value="Output data">
             </form>
