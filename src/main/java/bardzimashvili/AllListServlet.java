@@ -67,7 +67,7 @@ public class AllListServlet extends HttpServlet implements Properties
         try
         {
             ResultSet resSet;
-            resSet = conn.ReadTable(TABLEAPP);
+            resSet = conn.readTable(TABLEAPP);
 
 
             while (resSet.next())

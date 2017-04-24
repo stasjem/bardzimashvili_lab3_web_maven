@@ -27,7 +27,7 @@ public class MainServletIndex extends HttpServlet
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
         throws ServletException, IOException
     {
-        Db db = new Db();
+       /* Db db = new Db();
         try
         {
             db.db();
@@ -39,7 +39,7 @@ public class MainServletIndex extends HttpServlet
         catch (SQLException e)
         {
             e.printStackTrace();
-        }
+        }*/
 
 
        /* PrintWriter printWriter = resp.getWriter();

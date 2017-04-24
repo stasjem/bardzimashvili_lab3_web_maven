@@ -14,7 +14,7 @@ public class Conn
      * @throws ClassNotFoundException
      * @throws SQLException
      */
-    public static void Conn() throws ClassNotFoundException, SQLException
+    public static void conn() throws ClassNotFoundException, SQLException
     {
         conn = null;
         Class.forName("org.sqlite.JDBC");
@@ -26,38 +26,40 @@ public class Conn
         {
             e.printStackTrace();
         }
-        conn = DriverManager.getConnection("jdbc:sqlite:./resources/TEST1.s3db");
+        conn = DriverManager.getConnection("jdbc:sqlite:TEST1.s3db");
 
         //System.out.println("База Подключена!");
     }
 
     /**
      * Create table
+     *
      * @throws ClassNotFoundException
      * @throws SQLException
      */
-    public static void CreateDB() throws ClassNotFoundException, SQLException
+    public void createDB() throws ClassNotFoundException, SQLException
     {
         statmt = conn.createStatement();
         statmt.execute("CREATE TABLE if not exists 'users' " +
-                            "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text, 'phone' INT);");
+                           "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text, 'phone' INT);");
         statmt.execute("CREATE TABLE if not exists 'app' " +
-                            "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text, 'market' text, 'descriptions' text);");
+                           "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text, 'market' text, 'descriptions' text, 'size' text);");
         statmt.execute("CREATE TABLE if not exists 'market' " +
-                            "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text, 'category' text);");
+                           "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text, 'category' text);");
         statmt.execute("CREATE TABLE if not exists 'category' " +
-                            "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text);");
+                           "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text);");
         statmt.execute("CREATE TABLE if not exists 'subcategory' " +
-                            "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text);");
+                           "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text);");
 
         //System.out.println("Таблица создана или уже существует.");
     }
 
     /**
      * Writing data to a table
+     *
      * @throws SQLException
      */
-    public static void WriteDB() throws SQLException
+    public void writeDB() throws SQLException
     {
         /*statmt.execute("INSERT INTO 'users' ('name', 'phone') VALUES ('Petya', 125453); ");
         statmt.execute("INSERT INTO 'users' ('name', 'phone') VALUES ('Vasya', 321789); ");
@@ -104,8 +106,14 @@ public class Conn
         //System.out.println("Таблица заполнена");
     }
 
+    public void writeTableApp(String name, String market, String descriptions, String size) throws SQLException
+    {
+        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size') VALUES " +
+                           "('" + name + "','" + market + "','" + descriptions + "','" + size +"'); ");
+    }
+
     // -------- Вывод таблицы--------
-    public static void ReadDB() throws ClassNotFoundException, SQLException
+    public void readDB() throws ClassNotFoundException, SQLException
     {
         resSet = statmt.executeQuery("SELECT * FROM users");
 
@@ -124,9 +132,9 @@ public class Conn
     }
 
     // -------- Вывод таблицы--------
-    public ResultSet ReadTable(String table) throws Exception
+    public ResultSet readTable(String table) throws Exception
     {
-        resSet = statmt.executeQuery("SELECT * FROM " + table);
+        resSet = statmt.executeQuery("SELECT * FROM " + table + "; ");
 
         /*while (resSet.next())
         {
@@ -149,7 +157,7 @@ public class Conn
      * @throws ClassNotFoundException
      * @throws SQLException
      */
-    public static void CloseDB() throws ClassNotFoundException, SQLException
+    public void closeDB() throws ClassNotFoundException, SQLException
     {
         conn.close();
         //statmt.close();

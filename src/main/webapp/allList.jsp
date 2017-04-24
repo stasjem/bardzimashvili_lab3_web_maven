@@ -18,15 +18,15 @@
             <br>
             <%= request.getAttribute("phone") %>--%>
             <br>
-            <%= request.getAttribute("nameApp") %>
+            <%= request.getAttribute("nameAppDb") %>
             <br>
-            <%= request.getAttribute("category") %>
+            <%= request.getAttribute("categoryDb") %>
             <br>
-            <%= request.getAttribute("size") %>
+            <%= request.getAttribute("sizeDb") %>
             <br>
-            <%= request.getAttribute("market") %>
+            <%= request.getAttribute("marketDb") %>
             <br>
-            <%= request.getAttribute("descriptions") %>
+            <%= request.getAttribute("descriptionsDb") %>
         </td>
     </tr>
 </table>
