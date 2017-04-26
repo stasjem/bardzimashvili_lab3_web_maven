@@ -1,6 +1,8 @@
 <%@ page import="bardzimashvili.db.Db" %>
 <%@ page import="bardzimashvili.db.Conn" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+
 <%--<%= request.setAttribute() %>--%>
 <html>
 <head>
@@ -33,17 +35,17 @@
     </tr>
 </table>
 
-<sql:query dataSource="${snapshot}" var="result">
+<%--<sql:query dataSource="${snapshot}" var="result">
     SELECT * from Employees;
-</sql:query>
+</sql:query>--%>
 
-<%
+<%--<%
     Conn conn = new Conn();
     conn.readTable("app");
 
 
 
-%>
+%>--%>
 </body>
 </html>
 

@@ -4,9 +4,9 @@ import java.sql.*;
 
 public class Conn
 {
-    public static Connection conn;
-    public static Statement statmt;
-    public static ResultSet resSet;
+    private static Connection conn;
+    private static Statement statmt;
+    private static ResultSet resSet;
 
     /**
      * Connect to DB
@@ -18,14 +18,14 @@ public class Conn
     {
         conn = null;
         Class.forName("org.sqlite.JDBC");
-       /* try
+        try
         {
             new DirAndFiles();
         }
         catch (Exception e)
         {
             e.printStackTrace();
-        }*/
+        }
         conn = DriverManager.getConnection("jdbc:sqlite:TEST1.s3db");
 
         //System.out.println("База Подключена!");

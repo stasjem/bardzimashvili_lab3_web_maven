@@ -16,7 +16,7 @@ public class DirAndFiles implements Properties
      */
     public DirAndFiles() throws Exception
     {
-        createDir();
+        //createDir();
         createFile();
 
     }
@@ -41,7 +41,7 @@ public class DirAndFiles implements Properties
      */
     public void createFile()
     {
-        File file = new File(DIRFILEPATH);
+        File file = new File(FILEPATH);
         System.out.println(!file.exists());
         if (!file.exists())
         {
