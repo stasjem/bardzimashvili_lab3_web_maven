@@ -69,7 +69,9 @@ public class InputServlet extends HttpServlet implements Properties
         try
         {
             ResultSet resSet;
+            ResultSet resSet1;
             resSet = conn.readTable(TABLEAPP);
+
 
             while (resSet.next())
             {
@@ -95,8 +97,6 @@ public class InputServlet extends HttpServlet implements Properties
         {
             e.printStackTrace();
         }
-
-
 
 
         //req.getRequestDispatcher("allList.jsp").forward(req, resp);

@@ -4,6 +4,11 @@
 <html>
 <head>
     <title>Title</title>
+    <%--<link href="styles.css" rel="stylesheet" type="text/css">--%>
+    <%--<style type="text/css"
+    <source>
+        style.css
+    </style>--%>
 </head>
 <body>
 <table border="1" width="80%" align="center">

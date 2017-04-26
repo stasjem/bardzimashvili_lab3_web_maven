@@ -135,7 +135,7 @@ public class Conn
     public ResultSet readTable(String table) throws Exception
     {
         statmt = conn.createStatement();
-        resSet = statmt.executeQuery("SELECT * FROM " + table + "; ");
+        resSet = statmt.executeQuery("SELECT * FROM " + table + "");
 
         /*while (resSet.next())
         {
