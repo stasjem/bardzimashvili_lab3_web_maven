@@ -1,6 +1,8 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Date" %>
+<%@ page import="bardzimashvili.db.DirAndFiles" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% new DirAndFiles(); %>
 <html>
 <head>
     <title>Title</title>

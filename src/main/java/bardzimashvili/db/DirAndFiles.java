@@ -4,6 +4,7 @@ import bardzimashvili.Properties;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class DirAndFiles implements Properties
@@ -48,6 +49,33 @@ public class DirAndFiles implements Properties
             try
             {
                 file.createNewFile();
+                Conn conn = null;
+                try
+                {
+                    conn = new Conn();
+                }
+                catch (ClassNotFoundException e)
+                {
+                    e.printStackTrace();
+                }
+                catch (SQLException e)
+                {
+                    e.printStackTrace();
+                }
+
+                try
+                {
+                    conn.createDB();
+                    conn.writeDB();
+                }
+                catch (ClassNotFoundException e)
+                {
+                    e.printStackTrace();
+                }
+                catch (SQLException e)
+                {
+                    e.printStackTrace();
+                }
             }
             catch (IOException e)
             {

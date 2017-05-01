@@ -48,12 +48,10 @@ public class AllListServlet extends HttpServlet implements Properties
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
         throws ServletException, IOException
     {
-        Db db = new Db();
-        Conn conn = new Conn();
+
         try
         {
-            db.db();
-
+            Conn conn = new Conn();
         }
         catch (ClassNotFoundException e)
         {
@@ -64,9 +62,11 @@ public class AllListServlet extends HttpServlet implements Properties
             e.printStackTrace();
         }
 
+
         try
         {
             ResultSet resSet;
+            Conn conn = new Conn();
             resSet = conn.readTable(TABLEAPP);
 
 

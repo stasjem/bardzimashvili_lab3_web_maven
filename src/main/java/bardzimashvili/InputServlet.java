@@ -1,7 +1,7 @@
 package bardzimashvili;
 
 import bardzimashvili.db.Conn;
-import bardzimashvili.db.Db;
+import bardzimashvili.db.DirAndFiles;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,25 +11,17 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-//import static bardzimashvili.Properties.TABLEAPP;
-
 public class InputServlet extends HttpServlet implements Properties
 {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
         throws ServletException, IOException
     {
-
         try
         {
-            Db db = new Db();
-            db.db();
+            DirAndFiles dirAndFiles = new DirAndFiles();
         }
-        catch (ClassNotFoundException e)
-        {
-            e.printStackTrace();
-        }
-        catch (SQLException e)
+        catch (Exception e)
         {
             e.printStackTrace();
         }
@@ -46,9 +38,18 @@ public class InputServlet extends HttpServlet implements Properties
         String market = req.getParameter("market");
         String descriptions = req.getParameter("descriptions");
 
-        Conn conn = new Conn();
+
         try
         {
+            Conn conn = null;
+            try
+            {
+                conn = new Conn();
+            }
+            catch (ClassNotFoundException e)
+            {
+                e.printStackTrace();
+            }
             conn.writeTableApp(nameApp, market, descriptions, size, category);
         }
         catch (SQLException e)
@@ -69,7 +70,7 @@ public class InputServlet extends HttpServlet implements Properties
         try
         {
             ResultSet resSet;
-            ResultSet resSet1;
+            Conn conn = new Conn();
             resSet = conn.readTable(TABLEAPP);
 
 

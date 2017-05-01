@@ -1,5 +1,7 @@
-<%@ page import="bardzimashvili.db.Db" %>
 <%@ page import="bardzimashvili.db.Conn" %>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.Connection" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 
@@ -9,28 +11,51 @@
     <title>Title</title>
 </head>
 <body>
-<table border="1" width="80%" align="center">
+<table border="1" width="80%" align="center" valign="top">
     <tr>
         <jsp:include page="menu.jsp"/>
 
-        <td>
-            Current time
+        <td valign="top">
+            Current time<br><br>
+
+
             <%-- <br>
              <%= request.getAttribute("id") %>
              <br>
              <%= request.getAttribute("name") %>
              <br>
              <%= request.getAttribute("phone") %>--%>
-            <br>
-            <a href="edutApp.jsp?id=<%= request.getAttribute("idDb") %>"><%= request.getAttribute("nameAppDb") %></a>
-            <br>
-            <%= request.getAttribute("categoryDb") %>
-            <br>
-            <%= request.getAttribute("sizeDb") %>
-            <br>
-            <%= request.getAttribute("marketDb") %>
-            <br>
-            <%= request.getAttribute("descriptionsDb") %>
+
+            <table border="1" align="left" valign="top">
+
+                <%
+                    Conn conn = new Conn();
+                    String app = "app";
+                    ResultSet resSet;
+
+                    resSet = conn.readTable(app);
+
+                    while (resSet.next())
+                    {
+                        int id = resSet.getInt("id");
+                        String name = resSet.getString("name");
+                        String category = resSet.getString("category");
+                %>
+
+
+                <tr>
+                    <td>
+                        <a href="edutServlet?id=<%= id %>"><%= name %>
+                        </a>
+                        <br>
+                        <%= category %>
+
+                    </td>
+                    <% } %>
+                </tr>
+
+            </table>
+
         </td>
     </tr>
 </table>
@@ -38,14 +63,11 @@
 <%--<sql:query dataSource="${snapshot}" var="result">
     SELECT * from Employees;
 </sql:query>--%>
-
-<%--<%
-    Conn conn = new Conn();
-    conn.readTable("app");
-
-
+<%--<%!
+    //public static ResultSet resSet;
 
 %>--%>
+
 </body>
 </html>
 
