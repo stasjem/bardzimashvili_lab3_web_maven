@@ -40,14 +40,14 @@
     </servlet-mapping>
 
 
-    <!--<servlet>
-        <servlet-name>allList</servlet-name>
-        <jsp-file>allList.jsp</jsp-file>
+    <servlet>
+        <servlet-name>EditServlet</servlet-name>
+        <servlet-class>bardzimashvili.EditServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>allList</servlet-name>
-        <url-pattern>/allList.jsp</url-pattern>
-    </servlet-mapping>-->
+        <servlet-name>EditServlet</servlet-name>
+        <url-pattern>/EditServlet</url-pattern>
+    </servlet-mapping>
 
 
 </web-app>

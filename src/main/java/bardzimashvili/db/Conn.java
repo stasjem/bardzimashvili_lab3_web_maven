@@ -43,19 +43,22 @@ public class Conn
         statmt = conn.createStatement();
         statmt.execute("CREATE TABLE if not exists 'users' " +
                            "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text, 'phone' INT);");
+
         statmt.execute("CREATE TABLE if not exists 'app' " +
                            "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text, 'market' text, 'descriptions' text, 'size' text, 'category' text);");
+
         statmt.execute("CREATE TABLE if not exists 'market' " +
                            "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text, 'category' text);");
+
         statmt.execute("CREATE TABLE if not exists 'category' " +
                            "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text);");
+
         statmt.execute("CREATE TABLE if not exists 'subcategory' " +
-                           "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text);");
+                           "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text, category_id INT);");
 
         statmt.execute("CREATE TABLE if not exists 'test' " +
                            "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text);");
 
-        //System.out.println("Таблица создана или уже существует.");
     }
 
     /**
@@ -99,12 +102,12 @@ public class Conn
         statmt.execute("INSERT INTO 'category' ('name', 'subcategory') VALUES ('Game', '1'); ");
         statmt.execute("INSERT INTO 'category' ('name', 'subcategory') VALUES ('Engineering', '1'); ");*/
 
-        statmt.execute("INSERT INTO 'subcategory' ('name') VALUES ('Big Business'); ");
-        statmt.execute("INSERT INTO 'subcategory' ('name') VALUES ('Small Business'); ");
-        statmt.execute("INSERT INTO 'subcategory' ('name') VALUES ('Puzzle Games'); ");
-        statmt.execute("INSERT INTO 'subcategory' ('name') VALUES ('Race'); ");
-        statmt.execute("INSERT INTO 'subcategory' ('name') VALUES ('Education'); ");
-        statmt.execute("INSERT INTO 'subcategory' ('name') VALUES ('Engineering'); ");
+        statmt.execute("INSERT INTO 'subcategory' ('name', 'category_id') VALUES ('Big Business', '1'); ");
+        statmt.execute("INSERT INTO 'subcategory' ('name', 'category_id') VALUES ('Small Business', '1'); ");
+        statmt.execute("INSERT INTO 'subcategory' ('name', 'category_id') VALUES ('Puzzle Games', '3'); ");
+        statmt.execute("INSERT INTO 'subcategory' ('name', 'category_id') VALUES ('Race', '3'); ");
+        statmt.execute("INSERT INTO 'subcategory' ('name', 'category_id') VALUES ('Education', '3'); ");
+        statmt.execute("INSERT INTO 'subcategory' ('name', 'category_id') VALUES ('Engineering', '4'); ");
 
 
         //System.out.println("Таблица заполнена");
@@ -164,6 +167,8 @@ public class Conn
      */
     public ResultSet readTableWhere(String table, int id) throws Exception
     {
+        System.out.println(id);
+        System.out.println();
         resSet = statmt.executeQuery("SELECT * FROM " + table + " WHERE id=" + id + "; ");
         return resSet;
     }

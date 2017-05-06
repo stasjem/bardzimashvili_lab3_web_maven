@@ -17,15 +17,6 @@ public class InputServlet extends HttpServlet implements Properties
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
         throws ServletException, IOException
     {
-        try
-        {
-            DirAndFiles dirAndFiles = new DirAndFiles();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-
 
         /**
          * Took the values of variables
@@ -67,7 +58,7 @@ public class InputServlet extends HttpServlet implements Properties
         req.setAttribute("descriptions", descriptions);*/
 
 
-        try
+        /*try
         {
             ResultSet resSet;
             Conn conn = new Conn();
@@ -97,9 +88,9 @@ public class InputServlet extends HttpServlet implements Properties
         catch (Exception e)
         {
             e.printStackTrace();
-        }
+        }*/
 
 
-        //req.getRequestDispatcher("allList.jsp").forward(req, resp);
+        req.getRequestDispatcher("allList.jsp").forward(req, resp);
     }
 }

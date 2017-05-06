@@ -45,7 +45,7 @@
 
                 <tr>
                     <td>
-                        <a href="edutServlet?id=<%= id %>"><%= name %>
+                        <a href="EditServlet?id=<%= id %>"><%= name %>
                         </a>
                         <br>
                         <%= category %>

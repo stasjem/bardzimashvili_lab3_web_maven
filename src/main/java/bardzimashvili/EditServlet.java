@@ -17,6 +17,7 @@ public class EditServlet extends HttpServlet implements Properties
         throws ServletException, IOException
     {
         int id = Integer.parseInt(req.getParameter("id"));
+        System.out.println(id);
 
         try
         {
