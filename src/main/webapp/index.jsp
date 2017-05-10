@@ -1,6 +1,7 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="bardzimashvili.db.DirAndFiles" %>
+<%@ page import="java.io.PrintWriter" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <% new DirAndFiles(); %>
 <html>
@@ -25,6 +26,11 @@
     </td>
     </tr>
 </table>
+
+<%--<%
+    PrintWriter printWriter =response.getWriter();
+    printWriter.print("hello");
+%>--%>
 </body>
 </html>
 

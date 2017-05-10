@@ -10,8 +10,8 @@
 
         <td>
             <form action='InputServlet' method="post">
-                Name app<br>
-                <input type='text' size='40' name="nameApp" value="Name app"><br>
+                Name app: <br><%= request.getAttribute("nameApp") %>
+                <%--<input type='text' size='40' name="nameApp" value="Name app">--%><br>
                 Category<br>
                 <input type='text' size='40' name="category" value="category"><br>
                 40<br>

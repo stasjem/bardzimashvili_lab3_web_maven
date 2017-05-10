@@ -38,7 +38,7 @@
                     while (resSet.next())
                     {
                         int id = resSet.getInt("id");
-                        String name = resSet.getString("name");
+                        String name = resSet.getString("nameApp");
                         String category = resSet.getString("category");
                 %>
 
@@ -49,6 +49,10 @@
                         </a>
                         <br>
                         <%= category %>
+                        <br>
+                        <br>
+                        <%= request.getAttribute("testId") %>
+
 
                     </td>
                     <% } %>

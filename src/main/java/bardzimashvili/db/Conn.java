@@ -41,14 +41,14 @@ public class Conn
     public void createDB() throws ClassNotFoundException, SQLException
     {
         statmt = conn.createStatement();
-        statmt.execute("CREATE TABLE if not exists 'users' " +
-                           "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text, 'phone' INT);");
+        /*statmt.execute("CREATE TABLE if not exists 'users' " +
+                           "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text, 'phone' INT);");*/
 
         statmt.execute("CREATE TABLE if not exists 'app' " +
-                           "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text, 'market' text, 'descriptions' text, 'size' text, 'category' text);");
+                           "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'nameApp' text, 'descriptions' text, 'size' text, 'category' INT);");
 
-        statmt.execute("CREATE TABLE if not exists 'market' " +
-                           "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text, 'category' text);");
+        /*statmt.execute("CREATE TABLE if not exists 'market' " +
+                           "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text, 'category' text);");*/
 
         statmt.execute("CREATE TABLE if not exists 'category' " +
                            "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text);");
@@ -56,8 +56,8 @@ public class Conn
         statmt.execute("CREATE TABLE if not exists 'subcategory' " +
                            "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text, category_id INT);");
 
-        statmt.execute("CREATE TABLE if not exists 'test' " +
-                           "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text);");
+        /*statmt.execute("CREATE TABLE if not exists 'test' " +
+                           "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text);");*/
 
     }
 
@@ -72,16 +72,28 @@ public class Conn
         statmt.execute("INSERT INTO 'users' ('name', 'phone') VALUES ('Vasya', 321789); ");
         statmt.execute("INSERT INTO 'users' ('name', 'phone') VALUES ('Masha', 456123); ");*/
 
-        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size', 'category') VALUES ('Crash Arena', 'Google Play', 'descriptions', 'size', 'category'); ");
-        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size', 'category') VALUES ('Fly Catbug Fly!', 'Google Play', 'descriptions', 'size', 'category'); ");
-        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size', 'category') VALUES ('Sumotori Dreams', 'Google Play', 'descriptions', 'size', 'category'); ");
-        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size', 'category') VALUES ('Facets', 'Google Play', 'descriptions', 'size', 'category'); ");
-        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size', 'category') VALUES ('NBA 2K14', 'Google Play', 'descriptions', 'size', 'category'); ");
-        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size', 'category') VALUES ('Polar Bowler', 'Google Play', 'descriptions', 'size', 'category'); ");
-        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size', 'category') VALUES ('Domo - Icon Pack', 'Google Play', 'descriptions', 'size', 'category'); ");
-        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size', 'category') VALUES ('Fix My Car: Custom Mods', 'Google Play', 'descriptions', 'size', 'category'); ");
-        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size', 'category') VALUES ('IMPOSSIBLE ROAD', 'Google Play', 'descriptions', 'size', 'category'); ");
-        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size', 'category') VALUES ('Goat Rampage', 'Google Play', 'descriptions', 'size', 'category'); ");
+        /*statmt.execute("INSERT INTO 'app' ('nameApp', 'market', 'descriptions', 'size', 'category') VALUES ('Crash Arena', 'Google Play', 'descriptions', 'size', 'category'); ");
+        statmt.execute("INSERT INTO 'app' ('nameApp', 'market', 'descriptions', 'size', 'category') VALUES ('Fly Catbug Fly!', 'Google Play', 'descriptions', 'size', 'category'); ");
+        statmt.execute("INSERT INTO 'app' ('nameApp', 'market', 'descriptions', 'size', 'category') VALUES ('Sumotori Dreams', 'Google Play', 'descriptions', 'size', 'category'); ");
+        statmt.execute("INSERT INTO 'app' ('nameApp', 'market', 'descriptions', 'size', 'category') VALUES ('Facets', 'Google Play', 'descriptions', 'size', 'category'); ");
+        statmt.execute("INSERT INTO 'app' ('nameApp', 'market', 'descriptions', 'size', 'category') VALUES ('NBA 2K14', 'Google Play', 'descriptions', 'size', 'category'); ");
+        statmt.execute("INSERT INTO 'app' ('nameApp', 'market', 'descriptions', 'size', 'category') VALUES ('Polar Bowler', 'Google Play', 'descriptions', 'size', 'category'); ");
+        statmt.execute("INSERT INTO 'app' ('nameApp', 'market', 'descriptions', 'size', 'category') VALUES ('Domo - Icon Pack', 'Google Play', 'descriptions', 'size', 'category'); ");
+        statmt.execute("INSERT INTO 'app' ('nameApp', 'market', 'descriptions', 'size', 'category') VALUES ('Fix My Car: Custom Mods', 'Google Play', 'descriptions', 'size', 'category'); ");
+        statmt.execute("INSERT INTO 'app' ('nameApp', 'market', 'descriptions', 'size', 'category') VALUES ('IMPOSSIBLE ROAD', 'Google Play', 'descriptions', 'size', 'category'); ");
+        statmt.execute("INSERT INTO 'app' ('nameApp', 'market', 'descriptions', 'size', 'category') VALUES ('Goat Rampage', 'Google Play', 'descriptions', 'size', 'category'); ");*/
+
+
+        statmt.execute("INSERT INTO 'app' ('nameApp', 'descriptions', 'size', 'category') VALUES ('Crash Arena', 'descriptions', 'size', '1'); ");
+        statmt.execute("INSERT INTO 'app' ('nameApp', 'descriptions', 'size', 'category') VALUES ('Fly Catbug Fly!', 'descriptions', 'size', '2'); ");
+        statmt.execute("INSERT INTO 'app' ('nameApp', 'descriptions', 'size', 'category') VALUES ('Sumotori Dreams', 'descriptions', 'size', '3'); ");
+        statmt.execute("INSERT INTO 'app' ('nameApp', 'descriptions', 'size', 'category') VALUES ('Facets', 'descriptions', 'size', '4'); ");
+        statmt.execute("INSERT INTO 'app' ('nameApp', 'descriptions', 'size', 'category') VALUES ('NBA 2K14', 'descriptions', 'size', '1'); ");
+        statmt.execute("INSERT INTO 'app' ('nameApp', 'descriptions', 'size', 'category') VALUES ('Polar Bowler', 'descriptions', 'size', '2'); ");
+        statmt.execute("INSERT INTO 'app' ('nameApp', 'descriptions', 'size', 'category') VALUES ('Domo - Icon Pack', 'descriptions', 'size', '3'); ");
+        statmt.execute("INSERT INTO 'app' ('nameApp', 'descriptions', 'size', 'category') VALUES ('Fix My Car: Custom Mods', 'descriptions', 'size', '4'); ");
+        statmt.execute("INSERT INTO 'app' ('nameApp', 'descriptions', 'size', 'category') VALUES ('IMPOSSIBLE ROAD', 'descriptions', 'size', '1'); ");
+        statmt.execute("INSERT INTO 'app' ('nameApp', 'descriptions', 'size', 'category') VALUES ('Goat Rampage', 'descriptions', 'size', '2'); ");
 
         /*statmt.execute("INSERT INTO 'market' ('name', 'category') VALUES ('Google Play', '1'); ");
         statmt.execute("INSERT INTO 'market' ('name', 'category') VALUES ('Amazon Appstore', '1'); ");
@@ -113,11 +125,11 @@ public class Conn
         //System.out.println("Таблица заполнена");
     }
 
-    public void writeTableApp(String name, String market, String descriptions, String size, String category) throws SQLException
+    public void writeTableApp(String name, String descriptions, String size, String category) throws SQLException
     {
         statmt = conn.createStatement();
-        statmt.execute("INSERT INTO 'app' ('name', 'market', 'descriptions', 'size', 'category') VALUES " +
-                           "('" + name + "','" + market + "','" + descriptions + "','" + size + "','" + category + "'); ");
+        statmt.execute("INSERT INTO 'app' ('nameApp', 'descriptions', 'size', 'category') VALUES " +
+                           "('" + name + "','" + descriptions + "','" + size + "','" + category + "'); ");
     }
 
     // -------- Вывод таблицы--------
