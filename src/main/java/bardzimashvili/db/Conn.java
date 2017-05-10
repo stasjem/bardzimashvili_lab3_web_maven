@@ -177,11 +177,11 @@ public class Conn
      * @return
      * @throws Exception
      */
-    public ResultSet readTableWhere(String table, int id) throws Exception
+    public ResultSet readTableWhere(String table, String id) throws Exception
     {
-        System.out.println(id);
-        System.out.println();
-        resSet = statmt.executeQuery("SELECT * FROM " + table + " WHERE id=" + id + "; ");
+        /*System.out.println(id);
+        System.out.println();*/
+        resSet = statmt.executeQuery("SELECT * FROM " + table + " WHERE category_id='" + id + "'; ");
         return resSet;
     }
 

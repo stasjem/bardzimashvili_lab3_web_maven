@@ -16,7 +16,7 @@ public class EditServlet extends HttpServlet implements Properties
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
         throws ServletException, IOException
     {
-        int id = Integer.parseInt(req.getParameter("id"));
+        String id = req.getParameter("id");
         System.out.println(id);
 
         try

@@ -25,7 +25,7 @@ public class InputServletPartOne extends HttpServlet implements Properties
         String name = "nameapp";*/
         String testId = req.getParameter("testId");
         String nameApp = req.getParameter("nameApp");
-        String category = req.getParameter("category");
+        String categoryId = req.getParameter("categoryId");
         String size = req.getParameter("size");
         String descriptions = req.getParameter("descriptions");
 
@@ -33,6 +33,9 @@ public class InputServletPartOne extends HttpServlet implements Properties
 
 
         req.setAttribute("nameApp", nameApp);
+        req.setAttribute("categoryId", categoryId);
+        req.setAttribute("size", size);
+        req.setAttribute("descriptions", descriptions);
 
 
         try
@@ -46,7 +49,7 @@ public class InputServletPartOne extends HttpServlet implements Properties
             {
                 e.printStackTrace();
             }
-            conn.writeTableApp(nameApp, descriptions, size, category);
+            conn.writeTableApp(nameApp, descriptions, size, categoryId);
         }
         catch (SQLException e)
         {

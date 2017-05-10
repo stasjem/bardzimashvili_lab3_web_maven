@@ -11,11 +11,11 @@
         <jsp:include page="menu.jsp"/>
 
         <td>
-            <form action='InputServlet' method="post">
+            <form action='InputServletPartOne' method="post">
                 Name app<br>
                 <input type='text' size='40' name="nameApp" value="Name app"><br><br>
                 Category<br>
-                <select>
+                <select name="categoryId">
 
                     <%
                         Conn conn = new Conn();
@@ -32,7 +32,7 @@
                     %>
 
 
-                    <option name="category" value="<%= id %>"><%= name %></option>
+                    <option value="<%= id %>"><%= name %></option>
 
                     <%--<input type='text' size='40' name="category" value="category">--%>
 

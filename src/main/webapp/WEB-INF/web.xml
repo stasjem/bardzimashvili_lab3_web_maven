@@ -22,12 +22,12 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>InputServlet</servlet-name>
-        <servlet-class>bardzimashvili.InputServlet</servlet-class>
+        <servlet-name>InputServletPartOne</servlet-name>
+        <servlet-class>bardzimashvili.InputServletPartOne</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>InputServlet</servlet-name>
-        <url-pattern>/InputServlet</url-pattern>
+        <servlet-name>InputServletPartOne</servlet-name>
+        <url-pattern>/InputServletPartOne</url-pattern>
     </servlet-mapping>
 
     <servlet>
