@@ -13,9 +13,10 @@
         <jsp:include page="menu.jsp"/>
 
         <td>
-            <form action='InputServlet' method="post">
-                Name app: <%= request.getAttribute("nameApp") %>
-                <%--<input type='text' size='40' name="nameApp" value="Name app">--%><br>
+            <form action="InputServlet" method="post">
+                <input type="hidden" name="nameApp" value="<%= request.getAttribute("nameApp") %>">
+
+                Name app: <%= request.getAttribute("nameApp") %><br>
                 Category: <%= request.getAttribute("category") %>
                 <%--<input type='text' size='40' name="category" value="category">--%><br>
                 Size: <%= request.getAttribute("size") %>
