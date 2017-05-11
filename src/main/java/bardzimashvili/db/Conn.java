@@ -150,7 +150,6 @@ public class Conn
         //System.out.println("Таблица выведена");
     }
 
-    // -------- Вывод таблицы--------
     public ResultSet readTable(String table) throws Exception
     {
         statmt = conn.createStatement();
@@ -168,6 +167,27 @@ public class Conn
         }*/
 
         //System.out.println("Таблица выведена");
+        return resSet;
+    }
+
+    public ResultSet readTableAll() throws Exception
+    {
+        statmt = conn.createStatement();
+        resSet = statmt.executeQuery("SELECT id, nameApp, descriptions, size," +
+                                         " (SELECT name FROM subcategory WHERE subcategory.id = app.category) AS subcategory," +
+                                         " (SELECT " +
+                                            "(SELECT name FROM category WHERE category.id = subcategory.category_id) category_id " +
+                                         "FROM subcategory WHERE subcategory.id = app.category) AS category_id" +
+                                         " FROM app; ");
+
+        return resSet;
+    }
+
+    public ResultSet readTableCategoryWhere(String name) throws Exception
+    {
+        statmt = conn.createStatement();
+        resSet = statmt.executeQuery("SELECT (SELECT name FROM category WHERE category.id = subcategory.category_id) AS category FROM subcategory WHERE subcategory.name = '" + name + "'; ");
+
         return resSet;
     }
 

@@ -36,7 +36,7 @@
 
                 %>
 
-                Category: <%= nameCategory1 %><%--<%= request.getAttribute("category") %>--%><br>
+                Category: <%= nameCategory1 %><br>
                 <% } %>
 
                 Size: <%= request.getAttribute("size") %><br>
