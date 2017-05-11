@@ -25,22 +25,25 @@ public class EditServlet extends HttpServlet implements Properties
             Conn conn = new Conn();
             try
             {
-                String whereName1 = "name";
-                resSet = conn.readTableWhere(TABLEAPP, id, whereName1);
+                String whereName1 = "id";
+                //resSet = conn.readTableWhere(TABLEAPP, id, whereName1);
+                resSet = conn.readTableAll(id);
                 while (resSet.next())
                 {
                     String idDb = resSet.getString("id");
-                    String nameAppDb = resSet.getString("name");
-                    String categoryDb = resSet.getString("category");
+                    String nameAppDb = resSet.getString("nameApp");
+                    //String categoryDb = resSet.getString("category");
                     String sizeDb = resSet.getString("size");
-                    String marketDb = resSet.getString("market");
                     String descriptionsDb = resSet.getString("descriptions");
+                    String category = resSet.getString("subcategory");
+                    String category_id = resSet.getString("category_id");
 
                     req.setAttribute("idDb", idDb);
                     req.setAttribute("nameAppDb", nameAppDb);
-                    req.setAttribute("categoryDb", categoryDb);
+                    req.setAttribute("category", category);
+                    req.setAttribute("category_id", category_id);
                     req.setAttribute("sizeDb", sizeDb);
-                    req.setAttribute("marketDb", marketDb);
+
                     req.setAttribute("descriptionsDb", descriptionsDb);
                     //System.out.println("idDh " + idDb);
 
