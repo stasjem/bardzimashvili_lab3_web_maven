@@ -21,24 +21,20 @@ public class InputServletPartOne extends HttpServlet implements Properties
         /**
          * Took the values of variables
          */
-        /*String title = "title";
-        String name = "nameapp";*/
         String testId = req.getParameter("testId");
         String nameApp = req.getParameter("nameApp");
         String categoryId = req.getParameter("categoryId");
         String size = req.getParameter("size");
         String descriptions = req.getParameter("descriptions");
 
-        req.setAttribute("testId", testId);
-
-
+        //req.setAttribute("testId", testId);
         req.setAttribute("nameApp", nameApp);
         req.setAttribute("categoryId", categoryId);
         req.setAttribute("size", size);
         req.setAttribute("descriptions", descriptions);
 
 
-        try
+       /* try
         {
             Conn conn = null;
             try
@@ -54,7 +50,7 @@ public class InputServletPartOne extends HttpServlet implements Properties
         catch (SQLException e)
         {
             e.printStackTrace();
-        }
+        }*/
 
 
         /*req.setAttribute("title", title);

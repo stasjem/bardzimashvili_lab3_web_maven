@@ -13,15 +13,34 @@
         <jsp:include page="menu.jsp"/>
 
         <td>
-            <form action="InputServlet" method="post">
+            <form action="InputServletPartTwo" method="post">
+
                 <input type="hidden" name="nameApp" value="<%= request.getAttribute("nameApp") %>">
+                <input type="hidden" name="category" value="<%= request.getAttribute("category") %>">
+                <input type="hidden" name="size" value="<%= request.getAttribute("size") %>">
+                <input type="hidden" name="descriptions" value="<%= request.getAttribute("descriptions") %>">
 
                 Name app: <%= request.getAttribute("nameApp") %><br>
-                Category: <%= request.getAttribute("category") %>
-                <%--<input type='text' size='40' name="category" value="category">--%><br>
-                Size: <%= request.getAttribute("size") %>
-                <%--<input type='text' size='40' name="size" value="size">--%><br>
-                <%--<input type='text' size='40' name="market" value="market">--%>
+
+                <%
+                    Conn conn1 = new Conn();
+                    String app1 = "category";
+                    String categoryId1 = (String) request.getAttribute("categoryId");
+                    String whereName1 = "id";
+                    ResultSet resSet1;
+
+                    resSet1 = conn1.readTableWhere(app1, categoryId1, whereName1);
+                    while (resSet1.next())
+                    {
+                        String nameCategory1 = resSet1.getString("name");
+
+                %>
+
+                Category: <%= nameCategory1 %><%--<%= request.getAttribute("category") %>--%><br>
+                <% } %>
+
+                Size: <%= request.getAttribute("size") %><br>
+
                 Descriptions new app: <%= request.getAttribute("size") %><br>
 
                 SubcategoryId:
@@ -29,15 +48,11 @@
                     <%
                         Conn conn = new Conn();
                         String app = "subcategory";
-                        String categoryId = (String)request.getAttribute("categoryId");
+                        String categoryId = (String) request.getAttribute("categoryId");
+                        String whereName = "category_id";
                         ResultSet resSet;
 
-                        resSet = conn.readTableWhere(app, categoryId);
-
-
-                        /*PrintWriter printWriter = response.getWriter();
-                        printWriter.print(resSet);*/
-
+                        resSet = conn.readTableWhere(app, categoryId, whereName);
 
                         while (resSet.next())
                         {
@@ -45,14 +60,14 @@
                             String name = resSet.getString("name");
                     %>
 
+                    <option value="<%= id %>"><%= name %>
+                    </option>
 
-                    <option value="<%= id %>"><%= name %></option>
                     <% } %>
                 </select><br>
 
-                Descriptions<br>
-                <%= request.getAttribute("descriptions") %>
-                <%--<input type='text' size='40' name="descriptions" value="descriptions">--%><br>
+                Descriptions:<br>
+                <%= request.getAttribute("descriptions") %><br>
                 <input type='submit' value="Output data">
             </form>
         </td>

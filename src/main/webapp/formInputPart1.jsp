@@ -31,11 +31,7 @@
                             //String category = resSet.getString("category");
                     %>
 
-
                     <option value="<%= id %>"><%= name %></option>
-                    <input type="hidden" name="nameApp" value="<%= name %>">
-
-                    <%--<input type='text' size='40' name="category" value="category">--%>
 
                     <% } %>
                 </select>

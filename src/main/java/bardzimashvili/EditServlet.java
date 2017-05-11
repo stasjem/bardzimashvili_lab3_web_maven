@@ -25,7 +25,8 @@ public class EditServlet extends HttpServlet implements Properties
             Conn conn = new Conn();
             try
             {
-                resSet = conn.readTableWhere(TABLEAPP, id);
+                String whereName1 = "name";
+                resSet = conn.readTableWhere(TABLEAPP, id, whereName1);
                 while (resSet.next())
                 {
                     String idDb = resSet.getString("id");
@@ -41,7 +42,7 @@ public class EditServlet extends HttpServlet implements Properties
                     req.setAttribute("sizeDb", sizeDb);
                     req.setAttribute("marketDb", marketDb);
                     req.setAttribute("descriptionsDb", descriptionsDb);
-                    System.out.println("idDh " + idDb);
+                    //System.out.println("idDh " + idDb);
 
                     req.getRequestDispatcher("editApp.jsp").forward(req, resp);
                 }
