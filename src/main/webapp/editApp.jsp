@@ -12,7 +12,7 @@
         <td>
             Current time
 
-            <form action='InputServlet' method="post">
+            <form action='UpdateServlet' method="post">
                 Name app<br>
                 <input type='text' size='40' name="nameApp" value="<%= request.getAttribute("nameAppDb") %>"><br>
 

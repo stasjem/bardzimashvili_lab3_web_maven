@@ -186,8 +186,7 @@ public class Conn
     public ResultSet readTableAll(String id) throws Exception
     {
         statmt = conn.createStatement();
-        resSet = statmt.executeQuery("SELECT id, nameApp, descriptions, size," +
-                                         " (SELECT name FROM subcategory WHERE subcategory.id = app.category) AS subcategory," +
+        resSet = statmt.executeQuery("SELECT id, nameApp, descriptions, size, (SELECT name FROM subcategory WHERE subcategory.id = app.category) AS subcategory," +
                                          " (SELECT " +
                                          "(SELECT name FROM category WHERE category.id = subcategory.category_id) category_id " +
                                          "FROM subcategory WHERE subcategory.id = app.category) AS category_id" +
