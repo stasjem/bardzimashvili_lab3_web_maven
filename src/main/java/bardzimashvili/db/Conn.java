@@ -176,7 +176,7 @@ public class Conn
         resSet = statmt.executeQuery("SELECT id, nameApp, descriptions, size," +
                                          " (SELECT name FROM subcategory WHERE subcategory.id = app.category) AS subcategory," +
                                          " (SELECT " +
-                                            "(SELECT name FROM category WHERE category.id = subcategory.category_id) category_id " +
+                                         "(SELECT name FROM category WHERE category.id = subcategory.category_id) category_id " +
                                          "FROM subcategory WHERE subcategory.id = app.category) AS category_id" +
                                          " FROM app; ");
 
@@ -190,7 +190,7 @@ public class Conn
                                          " (SELECT " +
                                          "(SELECT name FROM category WHERE category.id = subcategory.category_id) category_id " +
                                          "FROM subcategory WHERE subcategory.id = app.category) AS category_id" +
-                                         " FROM app WHERE id = '" +id+ "'; ");
+                                         " FROM app WHERE id = '" + id + "'; ");
 
         return resSet;
     }
@@ -204,7 +204,6 @@ public class Conn
     }
 
     /**
-     *
      * @param table
      * @return
      * @throws Exception
@@ -219,9 +218,12 @@ public class Conn
 
     public void updateTableWhere(String id, String nameAppDb, String sizeDb, String descriptionsDb) throws Exception
     {
-        System.out.println("updateTableWhere " + nameAppDb);
         statmt.execute("UPDATE app SET nameApp = '" + nameAppDb + "', descriptions = '" + descriptionsDb + "', size = '" + sizeDb + "' WHERE id = '" + id + "'; ");
-        //return resSet;
+    }
+
+    public void deleteTableWhere(String id) throws Exception
+    {
+        statmt.execute("DELETE FROM app WHERE id = '" + id + "'; ");
     }
 
 

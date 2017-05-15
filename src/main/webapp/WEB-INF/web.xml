@@ -76,7 +76,7 @@
         <url-pattern>/DeleteServlet</url-pattern>
     </servlet-mapping>
 
-    DeleteServlet
+
 
 
 </web-app>

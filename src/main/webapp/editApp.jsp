@@ -13,7 +13,7 @@
             Current time
 
             <form action='UpdateServlet' method="post">
-                <input type='text' size='40' name="idDb" value="<%= request.getAttribute("idDb") %>">
+                <input type='hidden' size='40' name="idDb" value="<%= request.getAttribute("idDb") %>">
 
                 Name app<br>
                 <input type='text' size='40' name="nameApp" value="<%= request.getAttribute("nameAppDb") %>"><br>
@@ -33,7 +33,7 @@
             </form>
 
             <form action='DeleteServlet' method="post">
-                <input type='text' size='40' name="idDb" value="<%= request.getAttribute("idDb") %>">
+                <input type='hidden' size='40' name="idDb" value="<%= request.getAttribute("idDb") %>">
                 <input type='submit' name="delete" value="Delete">
             </form>
 
