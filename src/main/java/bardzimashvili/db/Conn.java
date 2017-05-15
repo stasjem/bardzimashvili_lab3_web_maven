@@ -28,8 +28,6 @@ public class Conn
             e.printStackTrace();
         }
         conn = DriverManager.getConnection("jdbc:sqlite:TEST1.s3db");
-
-        //System.out.println("База Подключена!");
     }
 
     /**
@@ -120,9 +118,6 @@ public class Conn
         statmt.execute("INSERT INTO 'subcategory' ('name', 'category_id') VALUES ('Race', '3'); ");
         statmt.execute("INSERT INTO 'subcategory' ('name', 'category_id') VALUES ('Education', '3'); ");
         statmt.execute("INSERT INTO 'subcategory' ('name', 'category_id') VALUES ('Engineering', '4'); ");
-
-
-        //System.out.println("Таблица заполнена");
     }
 
     public void writeTableApp(String name, String descriptions, String size, String category) throws SQLException
@@ -132,7 +127,6 @@ public class Conn
                            "('" + name + "','" + descriptions + "','" + size + "','" + category + "'); ");
     }
 
-    // -------- Вывод таблицы--------
     public void readDB() throws ClassNotFoundException, SQLException
     {
         resSet = statmt.executeQuery("SELECT * FROM users");
@@ -141,32 +135,13 @@ public class Conn
             int id = resSet.getInt("id");
             String name = resSet.getString("name");
             String phone = resSet.getString("phone");
-            /*System.out.println("ID = " + id);
-            System.out.println("name = " + name);
-            System.out.println("phone = " + phone);
-            System.out.println();*/
         }
-
-        //System.out.println("Таблица выведена");
     }
 
     public ResultSet readTable(String table) throws Exception
     {
         statmt = conn.createStatement();
         resSet = statmt.executeQuery("SELECT * FROM " + table + "; ");
-
-        /*while (resSet.next())
-        {
-            int id = resSet.getInt("id");
-            String name = resSet.getString("name");
-            String phone = resSet.getString("phone");
-            System.out.println("ID = " + id);
-            System.out.println("name = " + name);
-            System.out.println("phone = " + phone);
-            System.out.println();
-        }*/
-
-        //System.out.println("Таблица выведена");
         return resSet;
     }
 
@@ -224,6 +199,23 @@ public class Conn
         statmt.execute("DELETE FROM app WHERE id = '" + id + "'; ");
     }
 
+    public ResultSet searchTableWhere(String nameApp) throws Exception
+    {
+        statmt.executeQuery("SELECT *, " +
+                                     "(SELECT name FROM subcategory WHERE subcategory.id = app.category) AS subcategory," +
+                                        " (SELECT " +
+                                            "(SELECT name FROM category WHERE category.id = subcategory.category_id) category_id " +
+                                                "FROM subcategory WHERE subcategory.id = app.category) AS category_id " +
+                                "FROM app WHERE nameApp LIKE '%" + nameApp + "%' OR " +
+                                "(SELECT " +
+                                "(SELECT name FROM category " +
+                                "WHERE category.id = subcategory.category_id AND " +
+                                "category.name LIKE '%" + nameApp + "%') AS category_id " +
+                                "FROM subcategory WHERE subcategory.id = app.category) " +
+                                "LIKE '%" + nameApp + "%'; ");
+        return resSet;
+    }
+
 
     /**
      * Close connect
@@ -234,9 +226,6 @@ public class Conn
     public void closeDB() throws ClassNotFoundException, SQLException
     {
         conn.close();
-        //statmt.close();
         resSet.close();
-
-        //System.out.println("Соединения закрыты");
     }
 }

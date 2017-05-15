@@ -76,6 +76,15 @@
         <url-pattern>/DeleteServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>SearchServlet</servlet-name>
+        <servlet-class>bardzimashvili.SearchServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchServlet</servlet-name>
+        <url-pattern>/SearchServlet</url-pattern>
+    </servlet-mapping>
+
 
 
 

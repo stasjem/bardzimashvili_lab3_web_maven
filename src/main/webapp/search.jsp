@@ -9,10 +9,11 @@
         <jsp:include page="menu.jsp"/>
 
         <td>
-            <form action='UpdateServlet' method="post">
+            <form action='SearchServlet' method="post">
 
                 Search by name and by category<br>
                 <input type='text' size='80' name="nameApp"><br>
+                <input type='submit' value="Search">
 
             </form>
         </td>
