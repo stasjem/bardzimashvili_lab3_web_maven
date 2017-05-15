@@ -7,7 +7,6 @@
 <table border="1" width="80%" align="center">
     <tr>
         <jsp:include page="menu.jsp"/>
-
         <td>
             <form action='SearchServlet' method="post">
 

@@ -43,8 +43,6 @@
                         Category: <%= category_id %><br>
                         Size: <%= size %><br>
                         Descriptions: <%= descriptions %><br>
-                        <br>
-                        <br>
                     </td>
                     <% } %>
                 </tr>

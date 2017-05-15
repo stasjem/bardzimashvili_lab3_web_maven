@@ -19,7 +19,6 @@
                     String nameApp = (String) request.getAttribute("nameApp");
                     ResultSet resSet;
 
-                    //resSet = conn.readTable(app);
                     resSet = conn.searchTableWhere(nameApp);
 
                     while (resSet.next())
@@ -42,40 +41,6 @@
                         Category: <%= category %><br>
                         Size: <%= size %><br>
                         Descriptions: <%= descriptions %><br>
-
-
-                            <%--Subcategory: <%= request.getAttribute("category") %><br>
-                            Category: <%= request.getAttribute("category") %><br>
-                            Size: <%= request.getAttribute("sizeDb") %><br>
-                            Descriptions: <%= request.getAttribute("descriptionsDb") %><br>
---%>
-
-
-
-                        <%--<%
-                            Conn conn1 = new Conn();
-                            String subcategory = "subcategory";
-                            String subcategoryId = "subcategoryId";
-                            ResultSet resSet1;
-
-                            //resSet = conn.readTableWhere(subcategory, category, subcategoryId);
-                            resSet1 = conn1.readTableCategoryWhere(category);
-
-                            while (resSet1.next())
-                            {
-                                /*int id1 = resSet.getInt("id");*/
-                                /*String name1 = resSet.getString("name");*/
-                                String category1 = resSet.getString("category");
-                        %>
-                        <%= category1 %>
-                        <% } %>--%>
-
-
-                        <br>
-                        <br>
-                        <%--<%= request.getAttribute("testId") %>--%>
-
-
                     </td>
                     <% } %>
                 </tr>
