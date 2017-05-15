@@ -13,21 +13,28 @@
             Current time
 
             <form action='UpdateServlet' method="post">
+                <input type='text' size='40' name="idDb" value="<%= request.getAttribute("idDb") %>">
+
                 Name app<br>
                 <input type='text' size='40' name="nameApp" value="<%= request.getAttribute("nameAppDb") %>"><br>
 
                 Size<br>
                 <input type='text' size='40' name="size" value="<%= request.getAttribute("sizeDb") %>"><br>
 
-                Category<br>
+                <%--Category<br>
                 <input type='text' size='40' name="category" value="<%= request.getAttribute("category_id") %>"><br>
 
                 Subcategory<br>
-                <input type='text' size='40' name="category" value="<%= request.getAttribute("category") %>"><br>
+                <input type='text' size='40' name="category" value="<%= request.getAttribute("category") %>"><br>--%>
 
                 Descriptions new app<br>
                 <input type='text' size='40' name="descriptions" value="<%= request.getAttribute("descriptionsDb") %>"><br>
-                <input type='submit' value="Output update data">
+                <input type='submit' name="update" value="Update">
+            </form>
+
+            <form action='DeleteServlet' method="post">
+                <input type='text' size='40' name="idDb" value="<%= request.getAttribute("idDb") %>">
+                <input type='submit' name="delete" value="Delete">
             </form>
 
             <%-- <br>
@@ -39,15 +46,15 @@
             <br><%--<a href=""--%>
 
 
-           <%-- <%= request.getAttribute("nameAppDb") %>
-            <br>
-            <%= request.getAttribute("categoryDb") %>
-            <br>
-            <%= request.getAttribute("sizeDb") %>
-            <br>
-            <%= request.getAttribute("marketDb") %>
-            <br>
-            <%= request.getAttribute("descriptionsDb") %>--%>
+            <%-- <%= request.getAttribute("nameAppDb") %>
+             <br>
+             <%= request.getAttribute("categoryDb") %>
+             <br>
+             <%= request.getAttribute("sizeDb") %>
+             <br>
+             <%= request.getAttribute("marketDb") %>
+             <br>
+             <%= request.getAttribute("descriptionsDb") %>--%>
         </td>
     </tr>
 </table>

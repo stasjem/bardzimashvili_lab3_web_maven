@@ -217,6 +217,14 @@ public class Conn
         return resSet;
     }
 
+    public void updateTableWhere(String id, String nameAppDb, String sizeDb, String descriptionsDb) throws Exception
+    {
+        System.out.println("updateTableWhere " + nameAppDb);
+        statmt.execute("UPDATE app SET nameApp = '" + nameAppDb + "', descriptions = '" + descriptionsDb + "', size = '" + sizeDb + "' WHERE id = '" + id + "'; ");
+        //return resSet;
+    }
+
+
     /**
      * Close connect
      *

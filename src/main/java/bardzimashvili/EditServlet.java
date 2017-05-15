@@ -25,7 +25,7 @@ public class EditServlet extends HttpServlet implements Properties
             Conn conn = new Conn();
             try
             {
-                String whereName1 = "id";
+                //String whereName1 = "id";
                 //resSet = conn.readTableWhere(TABLEAPP, id, whereName1);
                 resSet = conn.readTableAll(id);
                 while (resSet.next())
