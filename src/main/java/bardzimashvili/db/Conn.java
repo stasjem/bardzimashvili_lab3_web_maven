@@ -210,8 +210,6 @@ public class Conn
      */
     public ResultSet readTableWhere(String table, String id, String name) throws Exception
     {
-        /*System.out.println(id);
-        System.out.println();*/
         resSet = statmt.executeQuery("SELECT * FROM " + table + " WHERE " + name + "='" + id + "'; ");
         return resSet;
     }
