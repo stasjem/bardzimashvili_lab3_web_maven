@@ -5,7 +5,6 @@ import bardzimashvili.Properties;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class DirAndFiles implements Properties
 {

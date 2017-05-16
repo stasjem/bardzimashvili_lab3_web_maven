@@ -1,17 +1,12 @@
 <%@ page import="bardzimashvili.db.Conn" %>
 <%@ page import="java.sql.ResultSet" %>
-<%@ page import="java.sql.Statement" %>
-<%@ page import="java.sql.Connection" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-
-<%--<%= request.setAttribute() %>--%>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
-
 <table border="1" width="80%" align="center" valign="top">
     <tr>
         <jsp:include page="menu.jsp"/>
@@ -33,7 +28,6 @@
                         String category = resSet.getString("subcategory");
                         String category_id = resSet.getString("category_id");
                 %>
-
                 <tr>
                     <td>
                         <a href="EditServlet?id=<%= id %>"><%= name %>

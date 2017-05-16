@@ -6,9 +6,7 @@
 <body>
 <table border="1" width="80%" align="center">
     <tr>
-
         <jsp:include page="menu.jsp"/>
-
         <td>
             About As
             <br>

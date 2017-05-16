@@ -1,6 +1,5 @@
 <%@ page import="bardzimashvili.db.Conn" %>
 <%@ page import="java.sql.ResultSet" %>
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -10,10 +9,8 @@
 <table border="1" width="80%" align="center">
     <tr>
         <jsp:include page="menu.jsp"/>
-
         <td>
             <table border="1" align="left" valign="top">
-
                 <%
                     Conn conn = new Conn();
                     String nameApp = (String) request.getAttribute("nameApp");
@@ -28,10 +25,7 @@
                         String descriptions = resSet.getString("descriptions");
                         String size = resSet.getString("size");
                         String category = resSet.getString("subcategory");
-                        String category_id = resSet.getString("category_id");
                 %>
-
-
                 <tr>
                     <td>
                         <a href="EditServlet?id=<%= id %>"><%= name %>
@@ -44,9 +38,7 @@
                     </td>
                     <% } %>
                 </tr>
-
             </table>
-
         </td>
     </tr>
 </table>

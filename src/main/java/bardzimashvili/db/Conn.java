@@ -39,24 +39,15 @@ public class Conn
     public void createDB() throws ClassNotFoundException, SQLException
     {
         statmt = conn.createStatement();
-        /*statmt.execute("CREATE TABLE if not exists 'users' " +
-                           "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text, 'phone' INT);");*/
 
         statmt.execute("CREATE TABLE if not exists 'app' " +
                            "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'nameApp' text, 'descriptions' text, 'size' text, 'category' INT);");
-
-        /*statmt.execute("CREATE TABLE if not exists 'market' " +
-                           "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text, 'category' text);");*/
 
         statmt.execute("CREATE TABLE if not exists 'category' " +
                            "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text);");
 
         statmt.execute("CREATE TABLE if not exists 'subcategory' " +
                            "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text, category_id INT);");
-
-        /*statmt.execute("CREATE TABLE if not exists 'test' " +
-                           "('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'name' text);");*/
-
     }
 
     /**
@@ -66,22 +57,6 @@ public class Conn
      */
     public void writeDB() throws SQLException
     {
-        /*statmt.execute("INSERT INTO 'users' ('name', 'phone') VALUES ('Petya', 125453); ");
-        statmt.execute("INSERT INTO 'users' ('name', 'phone') VALUES ('Vasya', 321789); ");
-        statmt.execute("INSERT INTO 'users' ('name', 'phone') VALUES ('Masha', 456123); ");*/
-
-        /*statmt.execute("INSERT INTO 'app' ('nameApp', 'market', 'descriptions', 'size', 'category') VALUES ('Crash Arena', 'Google Play', 'descriptions', 'size', 'category'); ");
-        statmt.execute("INSERT INTO 'app' ('nameApp', 'market', 'descriptions', 'size', 'category') VALUES ('Fly Catbug Fly!', 'Google Play', 'descriptions', 'size', 'category'); ");
-        statmt.execute("INSERT INTO 'app' ('nameApp', 'market', 'descriptions', 'size', 'category') VALUES ('Sumotori Dreams', 'Google Play', 'descriptions', 'size', 'category'); ");
-        statmt.execute("INSERT INTO 'app' ('nameApp', 'market', 'descriptions', 'size', 'category') VALUES ('Facets', 'Google Play', 'descriptions', 'size', 'category'); ");
-        statmt.execute("INSERT INTO 'app' ('nameApp', 'market', 'descriptions', 'size', 'category') VALUES ('NBA 2K14', 'Google Play', 'descriptions', 'size', 'category'); ");
-        statmt.execute("INSERT INTO 'app' ('nameApp', 'market', 'descriptions', 'size', 'category') VALUES ('Polar Bowler', 'Google Play', 'descriptions', 'size', 'category'); ");
-        statmt.execute("INSERT INTO 'app' ('nameApp', 'market', 'descriptions', 'size', 'category') VALUES ('Domo - Icon Pack', 'Google Play', 'descriptions', 'size', 'category'); ");
-        statmt.execute("INSERT INTO 'app' ('nameApp', 'market', 'descriptions', 'size', 'category') VALUES ('Fix My Car: Custom Mods', 'Google Play', 'descriptions', 'size', 'category'); ");
-        statmt.execute("INSERT INTO 'app' ('nameApp', 'market', 'descriptions', 'size', 'category') VALUES ('IMPOSSIBLE ROAD', 'Google Play', 'descriptions', 'size', 'category'); ");
-        statmt.execute("INSERT INTO 'app' ('nameApp', 'market', 'descriptions', 'size', 'category') VALUES ('Goat Rampage', 'Google Play', 'descriptions', 'size', 'category'); ");*/
-
-
         statmt.execute("INSERT INTO 'app' ('nameApp', 'descriptions', 'size', 'category') VALUES ('Crash Arena', 'descriptions', 'size', '1'); ");
         statmt.execute("INSERT INTO 'app' ('nameApp', 'descriptions', 'size', 'category') VALUES ('Fly Catbug Fly!', 'descriptions', 'size', '2'); ");
         statmt.execute("INSERT INTO 'app' ('nameApp', 'descriptions', 'size', 'category') VALUES ('Sumotori Dreams', 'descriptions', 'size', '3'); ");
@@ -93,24 +68,10 @@ public class Conn
         statmt.execute("INSERT INTO 'app' ('nameApp', 'descriptions', 'size', 'category') VALUES ('IMPOSSIBLE ROAD', 'descriptions', 'size', '1'); ");
         statmt.execute("INSERT INTO 'app' ('nameApp', 'descriptions', 'size', 'category') VALUES ('Goat Rampage', 'descriptions', 'size', '2'); ");
 
-        /*statmt.execute("INSERT INTO 'market' ('name', 'category') VALUES ('Google Play', '1'); ");
-        statmt.execute("INSERT INTO 'market' ('name', 'category') VALUES ('Amazon Appstore', '1'); ");
-        statmt.execute("INSERT INTO 'market' ('name', 'category') VALUES ('Aptoid', '1'); ");
-        statmt.execute("INSERT INTO 'market' ('name', 'category') VALUES ('Opera Mobile Store', '1'); ");
-        statmt.execute("INSERT INTO 'market' ('name', 'category') VALUES ('Яндекс.Store', '1'); ");
-        statmt.execute("INSERT INTO 'market' ('name', 'category') VALUES ('Slide.ME', '1'); ");
-        statmt.execute("INSERT INTO 'market' ('name', 'category') VALUES ('AppsLib', '1'); ");
-        statmt.execute("INSERT INTO 'market' ('name', 'category') VALUES ('F-Droid', '1'); ");*/
-
         statmt.execute("INSERT INTO 'category' ('name') VALUES ('Business'); ");
         statmt.execute("INSERT INTO 'category' ('name') VALUES ('Calc'); ");
         statmt.execute("INSERT INTO 'category' ('name') VALUES ('Game'); ");
         statmt.execute("INSERT INTO 'category' ('name') VALUES ('Engineering'); ");
-
-        /*statmt.execute("INSERT INTO 'category' ('name', 'subcategory') VALUES ('Business', '1'); ");
-        statmt.execute("INSERT INTO 'category' ('name', 'subcategory') VALUES ('Calc', '1'); ");
-        statmt.execute("INSERT INTO 'category' ('name', 'subcategory') VALUES ('Game', '1'); ");
-        statmt.execute("INSERT INTO 'category' ('name', 'subcategory') VALUES ('Engineering', '1'); ");*/
 
         statmt.execute("INSERT INTO 'subcategory' ('name', 'category_id') VALUES ('Big Business', '1'); ");
         statmt.execute("INSERT INTO 'subcategory' ('name', 'category_id') VALUES ('Small Business', '1'); ");
@@ -125,17 +86,6 @@ public class Conn
         statmt = conn.createStatement();
         statmt.execute("INSERT INTO 'app' ('nameApp', 'descriptions', 'size', 'category') VALUES " +
                            "('" + name + "','" + descriptions + "','" + size + "','" + category + "'); ");
-    }
-
-    public void readDB() throws ClassNotFoundException, SQLException
-    {
-        resSet = statmt.executeQuery("SELECT * FROM users");
-        while (resSet.next())
-        {
-            int id = resSet.getInt("id");
-            String name = resSet.getString("name");
-            String phone = resSet.getString("phone");
-        }
     }
 
     public ResultSet readTable(String table) throws Exception
@@ -178,11 +128,7 @@ public class Conn
         return resSet;
     }
 
-    /**
-     * @param table
-     * @return
-     * @throws Exception
-     */
+
     public ResultSet readTableWhere(String table, String id, String name) throws Exception
     {
         resSet = statmt.executeQuery("SELECT * FROM " + table + " WHERE " + name + "='" + id + "'; ");
@@ -214,18 +160,5 @@ public class Conn
                                 "FROM subcategory WHERE subcategory.id = app.category) " +
                                 "LIKE '%" + nameApp + "%'; ");
         return resSet;
-    }
-
-
-    /**
-     * Close connect
-     *
-     * @throws ClassNotFoundException
-     * @throws SQLException
-     */
-    public void closeDB() throws ClassNotFoundException, SQLException
-    {
-        conn.close();
-        resSet.close();
     }
 }

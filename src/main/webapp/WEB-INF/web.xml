@@ -11,16 +11,6 @@
         based on the recommendations of the Application Developer's Guide.
     </description>
 
-
-    <servlet>
-        <servlet-name>MainServletIndex</servlet-name>
-        <servlet-class>bardzimashvili.MainServletIndex</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>MainServletIndex</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>
-
     <servlet>
         <servlet-name>InputServletPartOne</servlet-name>
         <servlet-class>bardzimashvili.InputServletPartOne</servlet-class>

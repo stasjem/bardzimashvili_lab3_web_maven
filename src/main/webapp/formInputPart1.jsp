@@ -9,14 +9,12 @@
 <table border="1" width="80%" align="center">
     <tr>
         <jsp:include page="menu.jsp"/>
-
         <td>
             <form action='InputServletPartOne' method="post">
                 Name app<br>
                 <input type='text' size='40' name="nameApp" value="Name app"><br><br>
                 Category<br>
                 <select name="categoryId">
-
                     <%
                         Conn conn = new Conn();
                         String app = "category";
@@ -28,14 +26,10 @@
                         {
                             int id = resSet.getInt("id");
                             String name = resSet.getString("name");
-                            //String category = resSet.getString("category");
                     %>
-
                     <option value="<%= id %>"><%= name %></option>
-
                     <% } %>
                 </select>
-
 
                 <br><br>
                 40<br>

@@ -15,11 +15,7 @@
             <td><a href="search.jsp">Search</a></td>
         </tr>
         <tr>
-            <%--<td><a href="AllListServlet">allList</a></td>--%>
             <td><a href="allList.jsp">allList</a></td>
         </tr>
-       <%-- <tr>
-            <td><a href="testHtml.jsp">testHtml</a></td>
-        </tr>--%>
     </table>
 </td>

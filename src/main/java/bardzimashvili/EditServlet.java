@@ -1,7 +1,6 @@
 package bardzimashvili;
 
 import bardzimashvili.db.Conn;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +16,6 @@ public class EditServlet extends HttpServlet implements Properties
         throws ServletException, IOException
     {
         String id = req.getParameter("id");
-        System.out.println(id);
 
         try
         {
@@ -25,14 +23,11 @@ public class EditServlet extends HttpServlet implements Properties
             Conn conn = new Conn();
             try
             {
-                //String whereName1 = "id";
-                //resSet = conn.readTableWhere(TABLEAPP, id, whereName1);
                 resSet = conn.readTableAll(id);
                 while (resSet.next())
                 {
                     String idDb = resSet.getString("id");
                     String nameAppDb = resSet.getString("nameApp");
-                    //String categoryDb = resSet.getString("category");
                     String sizeDb = resSet.getString("size");
                     String descriptionsDb = resSet.getString("descriptions");
                     String category = resSet.getString("subcategory");
@@ -45,7 +40,6 @@ public class EditServlet extends HttpServlet implements Properties
                     req.setAttribute("sizeDb", sizeDb);
 
                     req.setAttribute("descriptionsDb", descriptionsDb);
-                    //System.out.println("idDh " + idDb);
 
                     req.getRequestDispatcher("editApp.jsp").forward(req, resp);
                 }
@@ -63,10 +57,5 @@ public class EditServlet extends HttpServlet implements Properties
         {
             e.printStackTrace();
         }
-        /*String category = req.getParameter("category");
-        String size = req.getParameter("size");
-        String market = req.getParameter("market");
-        String descriptions = req.getParameter("descriptions");*/
-
     }
 }

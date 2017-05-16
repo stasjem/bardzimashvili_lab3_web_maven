@@ -11,17 +11,13 @@
 <table border="1" width="80%" align="center">
     <tr>
         <jsp:include page="menu.jsp"/>
-
         <td>
             <form action="InputServletPartTwo" method="post">
-
                 <input type="hidden" name="nameApp" value="<%= request.getAttribute("nameApp") %>">
                 <input type="hidden" name="category" value="<%= request.getAttribute("category") %>">
                 <input type="hidden" name="size" value="<%= request.getAttribute("size") %>">
                 <input type="hidden" name="descriptions" value="<%= request.getAttribute("descriptions") %>">
-
                 Name app: <%= request.getAttribute("nameApp") %><br>
-
                 <%
                     Conn conn1 = new Conn();
                     String app1 = "category";
@@ -33,14 +29,11 @@
                     while (resSet1.next())
                     {
                         String nameCategory1 = resSet1.getString("name");
-
                 %>
-
                 Category: <%= nameCategory1 %><br>
                 <% } %>
 
                 Size: <%= request.getAttribute("size") %><br>
-
                 Descriptions new app: <%= request.getAttribute("size") %><br>
 
                 SubcategoryId:
@@ -59,10 +52,7 @@
                             int id = resSet.getInt("id");
                             String name = resSet.getString("name");
                     %>
-
-                    <option value="<%= id %>"><%= name %>
-                    </option>
-
+                    <option value="<%= id %>"><%= name %></option>
                     <% } %>
                 </select><br>
 

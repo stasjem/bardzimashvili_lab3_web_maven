@@ -1,8 +1,6 @@
 package bardzimashvili;
 
 import bardzimashvili.db.Conn;
-import bardzimashvili.db.Db;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,25 +17,10 @@ public class AllListServlet extends HttpServlet implements Properties
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
         throws ServletException, IOException
     {
-        /*Db db = new Db();
-        try
-        {
-            db.db();
-        }
-        catch (ClassNotFoundException e)
-        {
-            e.printStackTrace();
-        }
-        catch (SQLException e)
-        {
-            e.printStackTrace();
-        }*/
-
-
         String title = "title";
         String name = "nameapp";
         String nameApp = req.getParameter("nameApp");
-        //req.setAttribute("name", value);
+
         req.setAttribute("title", title);
         req.setAttribute("name", name);
         req.setAttribute("nameApp", nameApp);
@@ -48,7 +31,6 @@ public class AllListServlet extends HttpServlet implements Properties
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
         throws ServletException, IOException
     {
-
         try
         {
             Conn conn = new Conn();
@@ -68,7 +50,6 @@ public class AllListServlet extends HttpServlet implements Properties
             ResultSet resSet;
             Conn conn = new Conn();
             resSet = conn.readTable(TABLEAPP);
-
 
             while (resSet.next())
             {
@@ -94,15 +75,5 @@ public class AllListServlet extends HttpServlet implements Properties
         {
             e.printStackTrace();
         }
-
-
-        /*String title = "title";
-        String name = "nameapp";
-        String nameApp = req.getParameter("nameApp");
-        //req.setAttribute("name", value);
-        req.setAttribute("title", title);
-        req.setAttribute("title", name);
-        req.setAttribute("nameApp", nameApp);*/
-        //req.getRequestDispatcher("allList.jsp").forward(req, resp);
     }
 }
