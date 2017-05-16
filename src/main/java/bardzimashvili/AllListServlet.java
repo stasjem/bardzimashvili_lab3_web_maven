@@ -10,7 +10,6 @@ import java.lang.Exception;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
 public class AllListServlet extends HttpServlet implements Properties
 {
     @Override
