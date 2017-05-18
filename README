@@ -1,5 +1,14 @@
 Проект ведения учёта списка приложений.
 
-Проект проверялся на сервере приложений wildfly 10.1.0.Final
-
 Сборка производилась при помощи apache-maven-3.5.0
+URL для скачивания https://maven.apache.org/download.cgi
+Командой из терминала
+# mvn clean package
+
+Проект проверялся на сервере приложений wildfly 10.1.0.Final
+URL для скачивания http://wildfly.org/downloads/
+deploy в %Путь_до_каталога%\wildfly-10.1.0.Final\standalone\deployments
+
+После запуска сервера
+В браузере переходим по URL
+http://localhost:8080/bardzimashvili_lab3_web_maven-1.0-SNAPSHOT/
