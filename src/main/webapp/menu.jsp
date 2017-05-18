@@ -9,13 +9,13 @@
             <td><a href="formInputPart1.jsp">Add a new record</a></td>
         </tr>
         <tr>
-            <td><a href="aboutAs.jsp">About as</a></td>
-        </tr>
-        <tr>
             <td><a href="search.jsp">Search</a></td>
         </tr>
         <tr>
             <td><a href="allList.jsp">allList</a></td>
+        </tr>
+        <tr>
+            <td><a href="aboutUs.jsp">About us</a></td>
         </tr>
     </table>
 </td>
